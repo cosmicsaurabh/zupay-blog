@@ -1,17 +1,27 @@
 import styled from "styled-components"
-import { Book, HouseDoor, JournalBookmark, PersonGear, PersonRolodex, QuestionCircle } from "react-bootstrap-icons"
+import { Book, HouseDoor, JournalBookmark, PersonGear, PersonRolodex, Plus, QuestionCircle } from "react-bootstrap-icons"
+import { useNavigate } from "react-router-dom"
 
 export const SideBar = () =>{
+  const navigate = useNavigate();
+  const handleNavigateNewBlog = () =>{
+    navigate("/newBlog");
+  }
+
+  const handleNavigateHome = () =>{
+    navigate("/")
+  }
+
   return (
     <>
     <Wrapper>
     <FlexCol>
-      <SidebarLogoWrapperActive>
-        <HouseDoor size={30} color="#FFFFFF" className="mt-5"/>
-      </SidebarLogoWrapperActive>
       <SidebarLogoWrapper>
-        <Book size={30} color="#3D404B" className="mt-5"/>
+        <Plus size={40} color="#3D404B" className="mt-4" onClick={handleNavigateNewBlog}/>
       </SidebarLogoWrapper>
+      <SidebarLogoWrapperActive>
+        <HouseDoor size={30} color="#FFFFFF" className="mt-5" onClick={handleNavigateHome}/>
+      </SidebarLogoWrapperActive>
       <SidebarLogoWrapper>
         <JournalBookmark size={30} color="#3D404B" className="mt-5"/>
       </SidebarLogoWrapper>

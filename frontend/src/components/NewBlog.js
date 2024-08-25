@@ -42,6 +42,11 @@ export const NewBlog = () => {
   const addSection = () => {
     setSections([...sections, { subTitle: '', subBody: '' }]);
   };
+  const removeLastSection = () => {
+    if (sections.length > 1) {
+      setSections(sections.slice(0, -1));
+    }
+  };
 
   const handleSubmit = async () =>{
     const blogData = {
@@ -112,7 +117,8 @@ export const NewBlog = () => {
 
               <ThemeProvider theme={theme}>
                 <ButtonWrapper>
-                  <Button variant="contained" color="violet" sx={{ width: "150px", alignSelf: "right" }} onClick={addSection}>Add Section</Button>
+                  <Button variant="contained" color="violet" sx={{ width: "150px", alignSelf: "right", margin:"10px" }} onClick={addSection}>Add Section</Button>
+                  <Button variant="contained" color="violet" sx={{ width: "160px", alignSelf: "right" }} onClick={removeLastSection}>Delete Section</Button>
                 </ButtonWrapper>
                 <Button
                   variant="contained"
@@ -142,10 +148,6 @@ display: flex;
 align-items:right;
 justify-content:right;
 
-`
-
-const ElementWrapper = styled.div`
-  margin:5px;
 `
 
 const HeaderWrapper = styled.div`
