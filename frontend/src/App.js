@@ -69,6 +69,9 @@ const FlexCol = styled.div`
 const HomeWrapper  = styled.div`
   border-radius:10px;
   width:100%;
+  display:flex;
+  align-items:center;
+  flex-direction:column;
   // border:5px solid #E5ECF3;
 `
 

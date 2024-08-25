@@ -7,7 +7,6 @@ const blogSchema = new mongoose.Schema({
     },
     published : {
         type:String,
-        required:true
     },
     contents:{
         type:Array,
