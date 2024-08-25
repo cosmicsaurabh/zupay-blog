@@ -1,17 +1,62 @@
 import styled from "styled-components"
 
-export const BlogCard = ({Head}) =>{
+export const BlogCard = () => {
   return (
     <>
-      <Wrapper>
+      <Wrapper id="one">
         <Heading>
-        Why should I use Flashcards for revision?
+          one
         </Heading>
         <Content>
-        There are several steps in the revision process when it comes to preparing for your exams. First, you need to understand the basics of each subject’s content; keywords, dates, quotes and equations. The next step is building on your knowledge and applying it to answer increasingly more difficult questions, gradually adding more complex knowledge and understanding before eventually completing practice exam papers.
+          11
         </Content>
+      </Wrapper>
+      <Wrapper id="two">
+        <Heading>
+          two
+        </Heading>
         <Content>
-        The most important step is the first, getting to grips with the basic building blocks of your subject, and using flashcards is a great way to achieve this. A flashcard has information on both sides; usually a keyword or question on one and the corresponding definition or answer on the other. Flashcards are a great resource to practice active recall, a memorisation technique aimed at improving the retrieval of information stored in our brains. 
+          22
+        </Content>
+      </Wrapper>
+      <Wrapper id="three">
+        <Heading>
+          three
+        </Heading>
+        <Content>
+          33
+        </Content>
+      </Wrapper>
+      <Wrapper id="f">
+        <Heading>
+          four
+        </Heading>
+        <Content>
+          44
+        </Content>
+      </Wrapper>
+      <Wrapper id="f">
+        <Heading>
+          four
+        </Heading>
+        <Content>
+          44
+        </Content>
+      </Wrapper>
+      <Wrapper id="f">
+        <Heading>
+          four
+        </Heading>
+        <Content>
+          44
+        </Content>
+      </Wrapper>
+      <Wrapper id="four">
+        <Heading>
+          four
+        </Heading>
+        <Content>
+          44
         </Content>
       </Wrapper>
     </>
@@ -19,30 +64,31 @@ export const BlogCard = ({Head}) =>{
 }
 
 const Wrapper = styled.div`
-  display:flex;
-  width:600px;
-  flex-direction:column;
-  background-color:#FFFFFF;
-  border-radius:10px;
-  align-items:left;
+  display: flex;
+  width: 600px;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  align-items: left;
   padding: 0px 20px;
-  margin-top:24px;
+  margin-top: 24px;
 `
+
 const Heading = styled.div`
-  margin:12px;
-  padding:10px;
-  font-weight:700;
-  font-size:24px;
-  line-height:28.8px;
-  color:#1E2026;
+  margin: 12px;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28.8px;
+  color: #1E2026;
 `
 
 const Content = styled.p`
-  padding:0px 12px 12px 12px;
-  font-weight:400;
-  text-wrap:break-line;
-  font-size:16px;
-  line-height:20.8px;
-  font-family:Bricolage Grotesque;
-  color:#3D404B;
+  padding: 0px 12px 12px 12px;
+  font-weight: 400;
+  text-wrap: break-line;
+  font-size: 16px;
+  line-height: 20.8px;
+  font-family: Bricolage Grotesque;
+  color: #3D404B;
 `

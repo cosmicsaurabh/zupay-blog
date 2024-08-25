@@ -50,10 +50,10 @@ export const Home = () => {
 
       <ContentCard/>
       <BlogCard/>
+      {/* <BlogCard/>
       <BlogCard/>
       <BlogCard/>
-      <BlogCard/>
-      <BlogCard/>
+      <BlogCard/> */}
     </Wrapper>
     </>
   )
