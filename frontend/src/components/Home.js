@@ -27,6 +27,16 @@ export const Home = () => {
   return (<>
     <Wrapper>
     <URContainer>Useful Resources</URContainer>
+    {blogs && blogs.map((item) => (
+      <Blog 
+      title = {item.title}
+      published = {item.published}
+      contents = {item.contents}
+      readTime = {item.readTime}
+      conclusion = {item.conclusion}
+      comments = {item.comments}
+    />
+    ))}
       <Blog />
 
       {/* <HeaderWrapper>

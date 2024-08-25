@@ -2,14 +2,41 @@ import React from 'react'
 import { BlogCard } from './BlogCard'
 import { ContentCard } from './ContentCard'
 import BlogHeading from './BlogHeading'
+import styled from "styled-components"
 
-const Blog = () => {
+const Blog = ({title,published,contents,readTime,conclusion,comments}) => {
   return (
     <>
     
-    <BlogHeading/>
-    <ContentCard/>
-    <BlogCard/>
+    <BlogHeading 
+    title = {title} 
+    published= {published} 
+    readTime={readTime} 
+    />
+    
+    
+    <ContentCard>
+    { contents &&
+          contents.map((content, index) => {
+            console.log("GdgdB",content);
+           return ( 
+           <p href='${index}'>afsaf {content.subTitle}</p>
+        )
+})
+    }
+    </ContentCard>
+
+    { contents &&
+          contents.map((content, index) => (
+          <BlogCard
+          key={index}
+        //   title = {content.title}
+          description = {content.description}
+          />
+        ))
+        }
+    
+    {/* <BlogCard/> */}
 
     {/* <BlogHeading/>
     <BlogCard/>
@@ -27,3 +54,11 @@ const Blog = () => {
 }
 
 export default Blog
+
+const Heading = styled.p`
+  color: #1E2026;
+  font-weight: 700;
+  font-size: 24px;
+  font-family: Bricolage Grotesque;
+  line-height: 28.8px;
+`
