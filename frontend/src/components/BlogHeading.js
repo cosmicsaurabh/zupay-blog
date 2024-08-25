@@ -1,42 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React from 'react'
 import styled from "styled-components";
-import { ContentCard } from "./ContentCard";
-import { BlogCard } from "./BlogCard";
-import axios from 'axios';
-import Blog from "./Blog";
 
-export const Home = () => {
-
-  const [blogs, setBlogs] = useState();
-
-  const fetchData  = async () => {
-    const fetchedData = await axios.get('/api/v1/blogs');
-    return fetchedData.data;
-  }
-
-  useEffect(() => {
-    let data;
-    const fun = async () => {
-      data = await fetchData();
-      setBlogs(data.blogs)
-    }
-    fun();
-  }, [])
-
-  console.log(blogs);
-  return (<>
-    <Wrapper>
-    <URContainer>Useful Resources</URContainer>
-
-      {/* <HeaderWrapper>
-        <URContainer>Useful Resources</URContainer>
-        <HeadingWrapper>Why should I use Flashcards for revision?</HeadingWrapper>
+const BlogHeading = () => {
+  return (
+    <HeaderWrapper>
+        <HeadingWrapper> Blog Title</HeadingWrapper>
         <FlexRow>
           <FlexCol>
             <InnerHeadingWrapper>
               Published
             </InnerHeadingWrapper>
             <InnerHeadingWrapper>
+                Date
             </InnerHeadingWrapper>
 
           </FlexCol>
@@ -45,21 +20,15 @@ export const Home = () => {
               Read Time
             </InnerHeadingWrapper>
             <InnerHeadingWrapper>
+                time
             </InnerHeadingWrapper>
           </FlexCol>
         </FlexRow>
-      </HeaderWrapper> */}
-      <Blog/>
-      {/* <ContentCard/>
-      <BlogCard/> */}
-      {/* <BlogCard/>
-      <BlogCard/>
-      <BlogCard/>
-      <BlogCard/> */}
-    </Wrapper>
-    </>
+      </HeaderWrapper>
   )
 }
+
+export default BlogHeading;
 
 const Wrapper = styled.div`
   background-color: #E5ECF3;
