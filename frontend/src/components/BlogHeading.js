@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from "styled-components";
 
-const BlogHeading = () => {
+const BlogHeading = ({title, published, readTime}) => {
   return (
     <HeaderWrapper>
-        <HeadingWrapper> Blog Title</HeadingWrapper>
+        <HeadingWrapper> {title}</HeadingWrapper>
         <FlexRow>
           <FlexCol>
             <InnerHeadingWrapper>
               Published
             </InnerHeadingWrapper>
             <InnerHeadingWrapper>
-                Date
+                Date: {published}
             </InnerHeadingWrapper>
 
           </FlexCol>
@@ -20,7 +20,7 @@ const BlogHeading = () => {
               Read Time
             </InnerHeadingWrapper>
             <InnerHeadingWrapper>
-                time
+                time: {readTime}
             </InnerHeadingWrapper>
           </FlexCol>
         </FlexRow>

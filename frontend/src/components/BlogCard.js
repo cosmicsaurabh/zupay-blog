@@ -1,17 +1,18 @@
 import styled from "styled-components"
 
-export const BlogCard = () => {
+export const BlogCard = ({id,title,description}) => {
+  console.log({title})
   return (
     <>
-      <Wrapper id="one">
+      <Wrapper id={id}>
         <Heading>
-          one
+          one:title {title}
         </Heading>
         <Content>
-          11
+          11:desc {description}
         </Content>
       </Wrapper>
-      <Wrapper id="two">
+      {/* <Wrapper id="two">
         <Heading>
           two
         </Heading>
@@ -35,7 +36,7 @@ export const BlogCard = () => {
         <Content>
           44
         </Content>
-      </Wrapper>
+      </Wrapper> */}
     </>
   )
 }
