@@ -36,8 +36,7 @@ export const Home = () => {
       conclusion = {item.conclusion}
       comments = {item.comments}
     />
-    ))}
-      <Blog />
+     ))} 
 
     </Wrapper>
     </>

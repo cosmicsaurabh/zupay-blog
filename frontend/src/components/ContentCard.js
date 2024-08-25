@@ -11,7 +11,7 @@ export const ContentCard = ({contents}) => {
         <Content>
 
         { contents?.map((content, index) => {
-          console.log("GdgdB",content.subTitle);
+          // console.log("GdgdB",content.subTitle);
           return ( 
             <>
            <a key={index} href={`#${index}`}>{index+1} {content.subTitle}</a>
