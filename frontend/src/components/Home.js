@@ -22,11 +22,12 @@ export const Home = () => {
     }
     fun();
   }, [])
-
+  
   console.log(blogs);
   return (<>
     <Wrapper>
     <URContainer>Useful Resources</URContainer>
+      <Blog />
 
       {/* <HeaderWrapper>
         <URContainer>Useful Resources</URContainer>
@@ -49,7 +50,6 @@ export const Home = () => {
           </FlexCol>
         </FlexRow>
       </HeaderWrapper> */}
-      <Blog/>
       {/* <ContentCard/>
       <BlogCard/> */}
       {/* <BlogCard/>

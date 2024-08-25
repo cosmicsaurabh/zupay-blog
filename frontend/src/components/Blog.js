@@ -11,7 +11,7 @@ const Blog = () => {
     <ContentCard/>
     <BlogCard/>
 
-    <BlogHeading/>
+    {/* <BlogHeading/>
     <BlogCard/>
     <ContentCard/>
 
@@ -21,7 +21,7 @@ const Blog = () => {
 
     <BlogHeading/>
     <BlogCard/>
-    <ContentCard/>
+    <ContentCard/> */}
     </>
   )
 }

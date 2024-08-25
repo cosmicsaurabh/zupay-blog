@@ -27,30 +27,7 @@ export const BlogCard = () => {
           33
         </Content>
       </Wrapper>
-      <Wrapper id="f">
-        <Heading>
-          four
-        </Heading>
-        <Content>
-          44
-        </Content>
-      </Wrapper>
-      <Wrapper id="f">
-        <Heading>
-          four
-        </Heading>
-        <Content>
-          44
-        </Content>
-      </Wrapper>
-      <Wrapper id="f">
-        <Heading>
-          four
-        </Heading>
-        <Content>
-          44
-        </Content>
-      </Wrapper>
+      
       <Wrapper id="four">
         <Heading>
           four
