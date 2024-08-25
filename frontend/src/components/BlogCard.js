@@ -1,42 +1,17 @@
 import styled from "styled-components"
 
-export const BlogCard = ({id,title,description}) => {
-  console.log({title})
+export const BlogCard = ({id,subTitle,subBody}) => {
+  console.log("subtitle in blogcard -> ", subTitle)
   return (
     <>
       <Wrapper id={id}>
         <Heading>
-          one:title {title}
+          {subTitle}
         </Heading>
         <Content>
-          11:desc {description}
+          {subBody}
         </Content>
       </Wrapper>
-      {/* <Wrapper id="two">
-        <Heading>
-          two
-        </Heading>
-        <Content>
-          22
-        </Content>
-      </Wrapper>
-      <Wrapper id="three">
-        <Heading>
-          three
-        </Heading>
-        <Content>
-          33
-        </Content>
-      </Wrapper>
-      
-      <Wrapper id="four">
-        <Heading>
-          four
-        </Heading>
-        <Content>
-          44
-        </Content>
-      </Wrapper> */}
     </>
   )
 }

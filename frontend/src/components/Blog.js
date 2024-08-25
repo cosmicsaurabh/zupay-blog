@@ -15,40 +15,21 @@ const Blog = ({title,published,contents,readTime,conclusion,comments}) => {
     />
     
     
-    <ContentCard>
-    { contents &&
-          contents.map((content, index) => {
-            console.log("GdgdB",content);
-           return ( 
-           <p href='${index}'>afsaf {content.subTitle}</p>
-        )
-})
-    }
-    </ContentCard>
+    <ContentCard contents = {contents} />
+
 
     { contents &&
           contents.map((content, index) => (
           <BlogCard
           key={index}
         //   title = {content.title}
-          description = {content.description}
+        subTitle = {content.subTitle}
+          subBody = {content.subBody}
           />
         ))
         }
     
-    {/* <BlogCard/> */}
-
-    {/* <BlogHeading/>
-    <BlogCard/>
-    <ContentCard/>
-
-    <BlogHeading/>
-    <BlogCard/>
-    <ContentCard/>
-
-    <BlogHeading/>
-    <BlogCard/>
-    <ContentCard/> */}
+   
     </>
   )
 }

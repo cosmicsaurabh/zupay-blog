@@ -39,33 +39,6 @@ export const Home = () => {
     ))}
       <Blog />
 
-      {/* <HeaderWrapper>
-        <URContainer>Useful Resources</URContainer>
-        <HeadingWrapper>Why should I use Flashcards for revision?</HeadingWrapper>
-        <FlexRow>
-          <FlexCol>
-            <InnerHeadingWrapper>
-              Published
-            </InnerHeadingWrapper>
-            <InnerHeadingWrapper>
-            </InnerHeadingWrapper>
-
-          </FlexCol>
-          <FlexCol>
-            <InnerHeadingWrapper>
-              Read Time
-            </InnerHeadingWrapper>
-            <InnerHeadingWrapper>
-            </InnerHeadingWrapper>
-          </FlexCol>
-        </FlexRow>
-      </HeaderWrapper> */}
-      {/* <ContentCard/>
-      <BlogCard/> */}
-      {/* <BlogCard/>
-      <BlogCard/>
-      <BlogCard/>
-      <BlogCard/> */}
     </Wrapper>
     </>
   )

@@ -1,19 +1,28 @@
 import styled from "styled-components"
 import { BlogCard } from "./BlogCard"
 
-export const ContentCard = ({title}) => {
+export const ContentCard = ({contents}) => {
   return (
     <>
       <Wrapper>
         <Heading>
           Content
         </Heading>
+        <Content>
+
+        { contents?.map((content, index) => {
+          console.log("GdgdB",content.subTitle);
+          return ( 
+            <>
+           <a key={index} href={`#${index}`}>{index+1} {content.subTitle}</a>
+           <br/>
+           </>
+        )
+      })
+    }
+    </Content>
         {/* <p><a href="#one">1. one {title}</a></p> */}
-        {/* <p><a href="#two">2. two</a></p>
-        <p><a href="#three">3. three</a></p>
-        <p><a href="#four">4. four</a></p>  */}
-        {/* <h3>{conclusion}</h3> */}
-        {/* <h4>{comments}</h4>*/}
+        
       </Wrapper>
     </>
   )
@@ -35,4 +44,15 @@ const Heading = styled.p`
   font-size: 24px;
   font-family: Bricolage Grotesque;
   line-height: 28.8px;
+`
+
+
+const Content = styled.p`
+  padding: 0px 12px 12px 12px;
+  font-weight: 400;
+  text-wrap: break-line;
+  font-size: 16px;
+  line-height: 20.8px;
+  font-family: Bricolage Grotesque;
+  color: #3D404B;
 `
