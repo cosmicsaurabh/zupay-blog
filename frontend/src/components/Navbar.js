@@ -49,7 +49,7 @@ const LoginButton = styled.button`
   justify-content: center;
   font-size: 15px;
   font-weight:600;
-  padding: 4px 12px 4px 12px;
+  padding: 12px;
   margin:10px;
   line-height: 18px;
   text-align: left;
@@ -66,7 +66,7 @@ const LoginButton = styled.button`
   justify-content: center;
   font-size: 15px;
   font-weight:600;
-  padding: 4px 12px 4px 12px;
+  padding:12px;
   margin:10px;
   line-height: 18px;
   text-align: left;
