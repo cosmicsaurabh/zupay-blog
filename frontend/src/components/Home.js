@@ -37,7 +37,6 @@ export const Home = () => {
       comments = {item.comments}
     />
     ))}
-      <Blog />
 
     </Wrapper>
     </>
@@ -50,6 +49,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom:200px;
 `
 
 const HeaderWrapper = styled.div`
