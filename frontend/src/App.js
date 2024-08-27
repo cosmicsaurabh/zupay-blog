@@ -1,11 +1,7 @@
-// import logo from './logo.svg';
-// import './App.css';
 import styled from 'styled-components';
 import {Home} from './components/Home.js';
 import { Navbar } from './components/Navbar.js';
 import { SideBar } from './components/SideBar.js';
-import axios from 'axios';
-import { useEffect } from 'react';
 import { useAuth } from "./components/store/auth.js";
 import { useNavigate } from "react-router-dom";
 
@@ -14,14 +10,6 @@ import { useNavigate } from "react-router-dom";
 function App() {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
-
-  const handleLoginClick = () => {
-    navigate("/login");
-  };
-
-  const handleRegisterClick = () => {
-    navigate("/register");
-  };
 
   return (
     <>
@@ -41,13 +29,7 @@ function App() {
       </FlexCol>
       </Wrapper>
       )}
-    {/* <Wrapper>
-      <Navbar/>
-      <FlexRow>
-        <SideBar/>
-        <Home/>
-      </FlexRow>
-      </Wrapper> */}
+    
     </>
   );
 }

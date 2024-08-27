@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./store/auth";
+import { Navbar } from "./Navbar";
 
 const Register = () => {
   const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
   const [errorMsg, setErrorMsg] = useState([]);
-  const [doubleCheckPassword, setDoubleCheckPassword] = useState(""); // Correct password confirmation state
+  const [doubleCheckPassword, setDoubleCheckPassword] = useState(""); 
   const [user, setUser] = useState({
     firstname: "",
     lastname: "",
@@ -43,23 +44,21 @@ const Register = () => {
         const responseData = await response.json();
         alert("Registration successful");
         setUser({ firstname: "", lastname: "", email: "", password: "" });
-        navigate("/");
+        navigate("/login");
       } else if (response.status === 400) {
         const responseData = await response.json();
         setErrorMsg(responseData.msg); // Set the error message from the backend
       } else {
-        ////console.log("Error inside response");
         setErrorMsg("An unexpected error occurred. Please try again.");
       }
-      //console.log("checking pass", doubleCheckPassword == user.password);
     } catch (err) {
-      // console.err("Error", err);
       setErrorMsg("An error occurred while registering. Please try again later.");
     }
   };
 
   return (
     <>
+    <Navbar/>
       {isLoggedIn ? (
         navigate("/")
       ) : (
@@ -115,14 +114,14 @@ const Register = () => {
                   placeholder="Confirm Password"
                 />
               </div>
-              {errorMsg && <p className="error-message">{errorMsg}</p>}
-              {/* {errorMsg.length > 0 && (
+              {/* {errorMsg && <p className="error-message">{errorMsg}</p>} */}
+              {errorMsg.length > 0 && (
                 <ul className="error-message">
                   {errorMsg.map((error, index) => (
                     <li key={index}>{error}</li>
                   ))}
                 </ul>
-              )} */}
+              )}
               <button type="submit" className="submit-button">
                 Register Now
               </button>

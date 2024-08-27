@@ -1,8 +1,7 @@
 import styled from "styled-components"
 import { useAuth } from "./store/auth";
 import { useNavigate } from "react-router-dom";
-import Login from "./Login";
-import Register from "./Register";
+import logo from '../assets/logo.png';
 export const Navbar = () => {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
@@ -14,12 +13,30 @@ export const Navbar = () => {
   const handleRegisterClick = () => {
     navigate("/register");
   };
+  const handleLogoutClick = () => {
+    navigate("/logout");
+  };
+  const handleLogoClick = () => {
+    navigate("/");
+  };
 
   return (<Wrapper>
-    <p>Logo</p>
+    <img src={logo} alt="ZuAi" onClick={handleLogoClick}></img>
     <FlexRow>
-    <LoginButton onClick={handleLoginClick}>Login</LoginButton>
-    <SignUpButton onClick={handleRegisterClick}>Join Now</SignUpButton>
+      {
+        (!isLoggedIn )?    
+        ( <>
+        <LoginButton onClick={handleLoginClick}>Login</LoginButton>
+        <RegisterButton onClick={handleRegisterClick}>Register</RegisterButton> 
+        </>
+
+        ):(
+          <LogoutButton onClick={handleLogoutClick}>Logout</LogoutButton>)
+        
+        
+      }
+    {/* <LoginButton onClick={handleLoginClick}>Login</LoginButton>
+    <SignUpButton onClick={handleRegisterClick}>Join Now</SignUpButton> */}
     </FlexRow>
   </Wrapper>)
 }
@@ -40,7 +57,7 @@ justify-content: space-between;
 `
 
 const LoginButton = styled.button`
-  border:2px dotted #EAF0F2;
+  border:2px solid #EAF0F2;
   background-color:#FFFFFF;
   border-radius:20px;
   color:#5B6170;
@@ -55,8 +72,24 @@ const LoginButton = styled.button`
   text-align: left;
   font-family:Bricolage Grotesque;
   `
+const LogoutButton = styled.button`
+  border:2px solid #EAF0F2;
+  background-color:#af3737;
+  border-radius:20px;
+  color:#fafbff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight:600;
+  padding: 12px;
+  margin:10px;
+  line-height: 18px;
+  text-align: left;
+  font-family:Bricolage Grotesque;
+  `
 
-  const SignUpButton = styled.button`
+  const RegisterButton = styled.button`
   border:0px;
   background-color:#6947BF;
   border-radius:20px;

@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema(
       validate: [
         {
           validator: function (value) {
-            return value.length >= 3; // Minimum length check
+            return value.length >= 3; 
           },
           message: " First Name must be >= 3 characters.",
         },
@@ -25,7 +25,6 @@ const UserSchema = new mongoose.Schema(
     },
     lastname: {
       type: String,
-      // required: [true, 'Email is required'],
     },
     email: {
       type: String,
@@ -33,48 +32,48 @@ const UserSchema = new mongoose.Schema(
       unique: true,
       trim: true,
       lowercase: true,
-      // validate: {
-      //   validator: function (value) {
-      //     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); // Validate email format
-      //   },
-      //   message: (props) => `${props.value} is not a valid email address!`,
-      // },
+      validate: {
+        validator: function (value) {
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); // Validate email format
+        },
+        message: (props) => `${props.value} is not a valid email address!`,
+      },
     },
     password: {
       type: String,
       required: [true, "Password is required"],
-      // validate: [
-      //   {
-      //     validator: function (value) {
-      //       return value.length >= 6; // Minimum length check
-      //     },
-      //     message: "Password must be at least 6 characters long",
-      //   },
-      //   {
-      //     validator: function (value) {
-      //       return /[A-Z]/.test(value); // Uppercase letter check
-      //     },
-      //     message: "Password must contain at least one uppercase letter",
-      //   },
-      //   {
-      //     validator: function (value) {
-      //       return /[a-z]/.test(value); // Lowercase letter check
-      //     },
-      //     message: "Password must contain at least one lowercase letter",
-      //   },
-      //   {
-      //     validator: function (value) {
-      //       return /\d/.test(value); // Digit check
-      //     },
-      //     message: "Password must contain at least one digit",
-      //   },
-      //   {
-      //     validator: function (value) {
-      //       return /[@$!%*?&]/.test(value); // Special character check
-      //     },
-      //     message: "Password must contain at least one special character",
-      //   },
-      // ],
+      validate: [
+        {
+          validator: function (value) {
+            return value.length >= 6; 
+          },
+          message: "Password must be at least 6 characters long",
+        },
+        {
+          validator: function (value) {
+            return /[A-Z]/.test(value); 
+          },
+          message: "Password must contain at least one uppercase letter",
+        },
+        {
+          validator: function (value) {
+            return /[a-z]/.test(value); 
+          },
+          message: "Password must contain at least one lowercase letter",
+        },
+        {
+          validator: function (value) {
+            return /\d/.test(value); 
+          },
+          message: "Password must contain at least one digit",
+        },
+        {
+          validator: function (value) {
+            return /[@$!%*?&]/.test(value);
+          },
+          message: "Password must contain at least one special character",
+        },
+      ],
     },
   },
   { timestamps: true },
@@ -94,7 +93,6 @@ UserSchema.methods.generateToken = async function () {
       },
     );
   } catch (error) {
-    ////console.log(error);
   }
 };
 
@@ -104,7 +102,6 @@ UserSchema.methods.comparePassword = async function (password) {
 
 //save mylb db me store hone se ohle ye run hoga
 UserSchema.pre("save", async function (next) {
-  ////console.log("premethod",this);
   const user = this;
   if (!user.isModified("password")) {
     next();

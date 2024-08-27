@@ -1,27 +1,24 @@
 import styled from "styled-components"
-import { BlogCard } from "./BlogCard"
 
-export const ContentCard = ({contents}) => {
+export const ContentCard = ({_id,contents}) => {
   return (
     <>
       <Wrapper>
         <Heading>
           Content
         </Heading>
-        <Content>
 
+        <Content>
         { contents?.map((content, index) => {
-          // console.log("GdgdB",content.subTitle);
           return ( 
             <>
-           <a key={index} href={`#${index}`}>{index+1} {content.subTitle}</a>
+           <a href={`#${_id}-${index}`}> {index + 1}. {content.subTitle}</a>
            <br/>
            </>
         )
       })
     }
     </Content>
-        {/* <p><a href="#one">1. one {title}</a></p> */}
         
       </Wrapper>
     </>

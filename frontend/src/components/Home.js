@@ -1,16 +1,14 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
-import { ContentCard } from "./ContentCard";
-import { BlogCard } from "./BlogCard";
 import axios from 'axios';
-import Blog from "./Blog";
+import Overview from"./Overview";
 
 export const Home = () => {
 
   const [blogs, setBlogs] = useState();
 
   const fetchData  = async () => {
-    const fetchedData = await axios.get('/api/v1/blogs');
+    const fetchedData = await axios.get(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/v1/blogs`);
     return fetchedData.data;
   }
 
@@ -22,22 +20,26 @@ export const Home = () => {
     }
     fun();
   }, [])
+
   
-  console.log(blogs);
   return (<>
     <Wrapper>
     <URContainer>Useful Resources</URContainer>
-    {blogs && blogs.map((item) => (
-      <Blog 
-      title = {item.title}
-      published = {item.published}
-      contents = {item.contents}
-      readTime = {item.readTime}
-      conclusion = {item.conclusion}
-      comments = {item.comments}
-    />
-     ))} 
-
+    {
+      blogs && blogs.map((item) => (
+        <Overview 
+        _id = {item._id}
+        creatorId = {item.creatorId}
+        title = {item.title}
+        publishedDate = {item.publishedDate}
+        publishedTime = {item.publishedTime}
+        contents = {item.contents}
+        readTime = {item.readTime}
+        conclusion = {item.conclusion}
+        comments = {item.comments}
+      />
+       ))
+    }
     </Wrapper>
     </>
   )

@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import "./styles.css";
 import Register from "./components/Register";
 import Login from "./components/Login";
-// import Logout from "./components/utils/Logout";
+import DetailsPage from "./components/DetailsPage";
+import Logout from "./components/Logout";
 import App from "./App";
-// import ErrorPage from "./components/pages/ErrorPage";
+import ErrorPage from "./components/ErrorPage";
 import { NewBlog } from "./components/NewBlog";
 function Mainapp() {
   return (
@@ -15,8 +15,9 @@ function Mainapp() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/newBlog" element={<NewBlog/>} />
-        {/* <Route path="/logout" element={<Logout />} /> */}
-        {/* <Route path="/*" element={<ErrorPage />} /> */}
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/detailspage" element={<DetailsPage />} />
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </Router>
   );

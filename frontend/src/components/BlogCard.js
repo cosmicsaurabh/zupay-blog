@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
-export const BlogCard = ({id,subTitle,subBody}) => {
-  console.log("subtitle in blogcard -> ", subTitle)
+export const BlogCard = ({key,id,subTitle,subBody}) => {
   return (
     <>
       <Wrapper id={id}>
@@ -20,6 +19,7 @@ const Wrapper = styled.div`
   display: flex;
   width: 600px;
   flex-direction: column;
+  
   background-color: #FFFFFF;
   border-radius: 10px;
   align-items: left;

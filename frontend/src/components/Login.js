@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { useAuth } from "./store/auth";
+import { Navbar } from "./Navbar";
 
 
 const Login = () => {
@@ -11,7 +12,7 @@ const Login = () => {
   });
   const [errorMsg, setErrorMsg] = useState("");
 
-  const { isLoggedIn, saveTokenInLocalStr } = useAuth();
+  const { isLoggedIn, saveTokenInLocalStr, saveCurrentUserIdInLocalStr } = useAuth();
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -21,7 +22,7 @@ const Login = () => {
       [name]: value,
     });
   };
-  console.log(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/auth/login`);
+  // console.log(`${process.env.REACT_APP_BASE_BACKEND_URL}/api/auth/login`);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -36,6 +37,7 @@ const Login = () => {
       if (response.ok) {
         const responseData = await response.json();
         saveTokenInLocalStr(responseData.token);
+        saveCurrentUserIdInLocalStr(responseData.userkiid);
         navigate("/");
       } else if (response.status === 400) {
         const responseData = await response.json();
@@ -44,43 +46,43 @@ const Login = () => {
         setErrorMsg("An unexpected error occurred. Please try again.");
       }
     } catch (error) {
-      //console.log(error);
+      console.log(error);
       setErrorMsg("Service is down....try again later");
     }
   };
 
   return (
     <>
+    <Navbar/>
       {isLoggedIn ? (
         navigate("/")
       ) : (
         <div className="full-page">
-          {/* <NavBar /> */}
           <div className="login-container">
             <div className="form-header">
               <h1>Login</h1>
             </div>
             <form onSubmit={handleFormSubmit} className="login-form">
               <div className="form-group">
-                {/* <label htmlFor="email">Email</label> */}
+                
                 <input
                   type="text"
                   name="email"
                   value={credentials.email}
                   onChange={handleInputChange}
                   placeholder="Email"
-                  required // Added required attribute for better UX
+                  required 
                 />
               </div>
               <div className="form-group">
-                {/* <label htmlFor="password">Password</label> */}
+                
                 <input
                   type="password"
                   name="password"
                   value={credentials.password}
                   onChange={handleInputChange}
                   placeholder="Password "
-                  required // Added required attribute for better UX
+                  required 
                 />
               </div>
               {errorMsg && <p className="error-message">{errorMsg}</p>}
